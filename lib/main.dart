@@ -2,13 +2,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_koko/pages/first_page.dart';
+import 'package:flutter_koko/pages/home_page.dart';
+import 'package:flutter_koko/pages/setting_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+   MyApp ({super.key});
 
   List<String> friendList = ['Emon', 'Arif', 'Hridoy'];
 
@@ -16,7 +19,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
+      home: FirstPage(),
+      routes: {
+        '/firstpage': (context) => FirstPage(),
+        '/homepage': (context) => HomePage(),
+        '/settingpage': (context) => Setting(),
+      },
+    );
         // backgroundColor: Colors.deepPurple[200],
         // appBar: AppBar(
         //   backgroundColor: Colors.indigoAccent,
@@ -94,17 +103,17 @@ class MyApp extends StatelessWidget {
         //   ),
         //   ),
 
-        body: GridView.builder(
-            itemCount: 64,
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-            itemBuilder: (context, index) =>
-                Container(
-                    color: Colors.deepPurple,
-                    margin:EdgeInsets.all(2),
-                ),
-        ),
-      ),
-    );
+        // body: GridView.builder(
+        //     itemCount: 64,
+        //     gridDelegate:
+        //         SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+        //     itemBuilder: (context, index) =>
+        //         Container(
+        //             color: Colors.deepPurple,
+        //             margin:EdgeInsets.all(2),
+        //         ),
+        // ),
+
+
   }
 }
